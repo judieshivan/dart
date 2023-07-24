@@ -1,0 +1,37 @@
+import 'dart:convert';
+
+void main() {
+  String jsonData = '''
+    [
+      {"month": "May", "day": 3},
+      {"month": "May", "day": 5},
+      {"month": "November", "day": 2},
+      {"month": "December", "day": 1},
+      {"month": "December", "day": 4},
+      {"month": "December", "day": 2}
+    ]
+  ''';
+
+  List<Map< String, dynamic>> birthdays = jsonDecode(jsonData);
+  
+  // Part A: Extract the months of all the birthdays
+  List<dynamic> monthsList = birthdays.map((birthday) => birthday['month']).toList();
+  print("Months of all the birthdays: $monthsList");
+  
+  // Part B: Count how many birthdays in each month
+  Map<String, int> monthCounts = {};
+  for (var birthday in birthdays) {
+    String month = birthday['month'];
+    monthCounts[month] = (monthCounts[month] ?? 0) + 1;
+  }
+  print("Count of birthdays in each month: $monthCounts");
+  
+  // Part C: Find the month with the highest and lowest birthday
+  String monthWithMostBirthdays = monthCounts.entries.reduce((a, b) => a.value > b.value ? a : b).key;
+  String monthWithLeastBirthdays = monthCounts.entries.reduce((a, b) => a.value < b.value ? a : b).key;
+  print("Month with the most birthdays: $monthWithMostBirthdays");
+  print("Month with the least birthdays: $monthWithLeastBirthdays");
+}
+
+
+
