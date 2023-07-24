@@ -1,0 +1,29 @@
+bool isPalindrome(String input) {
+  // Remove all non-alphanumeric characters and convert to lowercase
+  String cleanedInput = input.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
+
+  int left = 0;
+  int right = cleanedInput.length - 1;
+
+  while (left < right) {
+    if (cleanedInput[left] != cleanedInput[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+
+  return true;
+}
+
+void main() {
+  String input = "mum";
+  
+  bool result = isPalindrome(input);
+
+  if (result) {
+    print("The string is a palindrome.");
+  } else {
+    print("The string is not a palindrome.");
+  }
+}
