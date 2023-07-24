@@ -1,0 +1,14 @@
+String reverseWordsOrder(String input) {
+  List<String> words = input.split(" ");
+  words = words.reversed.toList();
+  return words.join(" ");
+}
+
+void main() {
+  print("Please enter a long string containing multiple words:");
+  String userInput = "My name is Michele"; // Replace this with actual user input
+
+  String reversedString = reverseWordsOrder(userInput);
+  print("Reversed String: $reversedString");
+}
+
