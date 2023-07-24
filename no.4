@@ -1,0 +1,20 @@
+List<int> getFirstAndLastElements(List<int> inputList) {
+  if (inputList.isEmpty) {
+    throw ArgumentError("Input list cannot be empty.");
+  }
+
+  List<int> result = [inputList.first, inputList.last];
+  return result;
+}
+
+void main() {
+  List<int> a = [5, 10, 15, 20, 25];
+
+  try {
+    List<int> firstAndLastElements = getFirstAndLastElements(a);
+    print("First and Last Elements: $firstAndLastElements");
+  } catch (e) {
+    print(e);
+  }
+}
+
